@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#5A5A5A">
+
+    <ScrollView
+        android:layout_width="580dp"
+        android:layout_height="1480dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#919191">
+
+            <Button
+                android:id="@+id/btnDaftar"
+                android:layout_width="121dp"
+                android:layout_height="72dp"
+                android:layout_marginLeft="200dp"
+                android:layout_marginTop="1150dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="100dp"
+                android:backgroundTint="#656B74"
+                android:text="Daftar"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/namaLengkap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="120dp"
+                android:layout_marginRight="15dp"
+                android:backgroundTint="#FFFFFF"
+                android:ems="10"
+                android:hint="Nama Lengkap"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="180dp"
+                android:layout_marginRight="15dp"
+                android:backgroundTint="#FFFFFF"
+                android:ems="10"
+                android:hint="Email"
+                android:inputType="textEmailAddress" />
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="240dp"
+                android:layout_marginRight="15dp"
+                android:backgroundTint="#FFFFFF"
+                android:ems="10"
+                android:hint="Password"
+                android:inputType="textPassword" />
+
+            <EditText
+                android:id="@+id/alamat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="320dp"
+                android:layout_marginRight="15dp"
+                android:backgroundTint="#FFFFFF"
+                android:ems="10"
+                android:hint="Alamat"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/usia"
+                android:layout_width="103dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="380dp"
+                android:layout_marginRight="15dp"
+                android:backgroundTint="#FFFFFF"
+                android:ems="10"
+                android:hint="Usia"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/pekerjaanTerakhir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="590dp"
+                android:layout_marginRight="15dp"
+                android:backgroundTint="#FFFFFF"
+                android:ems="10"
+                android:hint="Pekerjaan Terakhir"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/gajiBulanan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="1050dp"
+                android:layout_marginRight="15dp"
+                android:backgroundTint="#FFFFFF"
+                android:ems="10"
+                android:hint="Ekspektasi Gaji Bulanan (Rp)"
+                android:inputType="number" />
+
+            <RadioGroup
+                android:id="@+id/RadioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/RBtnLaki"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="490dp"
+                    android:backgroundTint="#FFFFFF"
+                    android:checked="true"
+                    android:text="Laki-Laki"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15dp" />
+
+                <RadioButton
+                    android:id="@+id/RBtnPerempuan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:backgroundTint="#FFFFFF"
+                    android:text="Perempuan"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15dp" />
+            </RadioGroup>
+
+            <Spinner
+                android:id="@+id/pendidikan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="700dp"
+                android:layout_marginRight="15dp"
+                android:backgroundTint="#FFFFFF"
+                android:entries="@array/pendidikan_terakhir_list"
+                android:prompt="@array/pendidikan_terakhir_list" />
+
+            <Spinner
+                android:id="@+id/tahunWisuda"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="800dp"
+                android:layout_marginRight="15dp"
+                android:backgroundTint="#FFFFFF"
+                android:entries="@array/tahun_wisuda_list"
+                android:prompt="@array/tahun_wisuda_list" />
+
+            <Spinner
+                android:id="@+id/pekerjaan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="900dp"
+                android:layout_marginRight="15dp"
+                android:backgroundTint="#FFFFFF"
+                android:entries="@array/pekerjaan_list"
+                android:prompt="@array/pekerjaan_list" />
+
+            <Spinner
+                android:id="@+id/penempatan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="1000dp"
+                android:layout_marginRight="15dp"
+                android:backgroundTint="#FFFFFF"
+                android:entries="@array/penempatan_list"
+                android:prompt="@array/penempatan_list" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="450dp"
+                android:layout_marginRight="15dp"
+                android:text="Jenis Kelamin"
+                android:textColor="#FFFFFF"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="660dp"
+                android:layout_marginRight="15dp"
+                android:text="Pendidikan Terakhir"
+                android:textColor="#FFFFFF"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="750dp"
+                android:layout_marginRight="15dp"
+                android:text="Tahun Wisuda"
+                android:textColor="#FFFFFF"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="850dp"
+                android:layout_marginRight="15dp"
+                android:text="Pekerjaan / Spesialisasi yang Diinginkan"
+                android:textColor="#FFFFFF"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="950dp"
+                android:layout_marginRight="15dp"
+                android:text="Lokasi Penempatan Kerja"
+                android:textColor="#FFFFFF"
+                android:textSize="20dp" />
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

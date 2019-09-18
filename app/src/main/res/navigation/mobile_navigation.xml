@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.tubes_pbp_kelompok3.ui.home.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_edit_profile"
+        android:name="com.example.tubes_pbp_kelompok3.ui.edit_profile.GalleryFragment"
+        android:label="Edit Profile"
+        tools:layout="@layout/fragment_edit_profile" />
+
+    <fragment
+        android:id="@+id/nav_favorite"
+        android:name="com.example.tubes_pbp_kelompok3.ui.favorite.SlideshowFragment"
+        android:label="Favorite"
+        tools:layout="@layout/fragment_favorite" />
+
+    <fragment
+        android:id="@+id/nav_about"
+        android:name="com.example.tubes_pbp_kelompok3.ui.about.ToolsFragment"
+        android:label="About"
+        tools:layout="@layout/fragment_about" />
+
+    <fragment
+        android:id="@+id/nav_logout"
+        android:name="com.example.tubes_pbp_kelompok3.ui.send.SendFragment"
+        android:label="Logout"
+        tools:layout="@layout/fragment_logout" />
+</navigation>

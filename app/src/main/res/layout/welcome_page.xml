@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".LoginActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:tint="#8F000000"
+        app:srcCompat="@drawable/background" />
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_alignStart="@+id/imageView"
+        android:layout_alignTop="@+id/imageView"
+        android:layout_alignEnd="@+id/imageView"
+        android:layout_alignBottom="@+id/imageView"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="-33dp"
+        android:layout_marginEnd="78dp"
+        android:layout_marginBottom="238dp"
+        android:scaleType="fitStart"
+        app:srcCompat="@drawable/shigoto_logo" />
+
+    <TextView
+        android:layout_width="289dp"
+        android:layout_height="85dp"
+        android:layout_alignTop="@+id/imageView"
+        android:layout_alignEnd="@+id/imageView"
+        android:layout_alignBottom="@+id/imageView"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="260dp"
+        android:layout_marginEnd="165dp"
+        android:layout_marginBottom="612dp"
+        android:background="#CB8B1818"
+        android:text="Shigoto"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="60sp"
+        android:typeface="serif" />
+
+    <TextView
+        android:layout_width="361dp"
+        android:layout_height="56dp"
+        android:layout_alignStart="@+id/imageView"
+        android:layout_alignTop="@+id/imageView"
+        android:layout_alignEnd="@+id/imageView"
+        android:layout_alignBottom="@+id/imageView"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="440dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="369dp"
+        android:text="Dapatkan informasi kerja terlengkap terakurat di Indonesia"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="318dp"
+        android:layout_height="84dp"
+        android:layout_alignTop="@+id/imageView"
+        android:layout_alignEnd="@+id/imageView"
+        android:layout_alignBottom="@+id/imageView"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="355dp"
+        android:layout_marginEnd="114dp"
+        android:layout_marginBottom="492dp"
+        android:background="#CB8B1818"
+        android:text="JobFinder"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="60sp"
+        android:typeface="serif" />
+
+    <Button
+        android:id="@+id/btnDaftarWelcome"
+        android:layout_width="154dp"
+        android:layout_height="63dp"
+        android:layout_alignStart="@+id/imageView"
+        android:layout_alignTop="@+id/imageView"
+        android:layout_alignEnd="@+id/imageView"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="520dp"
+        android:layout_marginEnd="369dp"
+        android:layout_marginBottom="159dp"
+        android:background="#C4CE1111"
+        android:text="Daftar"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/btnMasukWelcome"
+        android:layout_width="166dp"
+        android:layout_height="63dp"
+        android:layout_alignStart="@+id/imageView"
+        android:layout_alignTop="@+id/imageView"
+        android:layout_alignEnd="@+id/imageView"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="185dp"
+        android:layout_marginTop="520dp"
+        android:layout_marginEnd="108dp"
+        android:layout_marginBottom="159dp"
+        android:background="#C4CE1111"
+        android:text="Masuk"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp" />
+
+</FrameLayout>

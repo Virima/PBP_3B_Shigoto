@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#5A5A5A">
+
+    <TextView
+        android:id="@+id/text_gallery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/namaLengkapEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginRight="15dp"
+        android:backgroundTint="#FFFFFF"
+        android:ems="10"
+        android:hint="Nama Lengkap Baru"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/alamatEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="170dp"
+        android:layout_marginRight="15dp"
+        android:backgroundTint="#FFFFFF"
+        android:ems="10"
+        android:hint="Alamat Baru"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/pekerjaanTerakhirEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="220dp"
+        android:layout_marginRight="15dp"
+        android:backgroundTint="#FFFFFF"
+        android:ems="10"
+        android:hint="Pekerjaan Terakhir"
+        android:inputType="number" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="280dp"
+        android:layout_marginRight="15dp"
+        android:text="Pendidikan Terakhir"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp" />
+
+    <Spinner
+        android:id="@+id/pendidikanEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="330dp"
+        android:layout_marginRight="15dp"
+        android:backgroundTint="#FFFFFF"
+        android:entries="@array/pendidikan_terakhir_list"
+        android:prompt="@array/pendidikan_terakhir_list" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="380dp"
+        android:layout_marginRight="15dp"
+        android:text="Tahun Wisuda"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp" />
+
+    <Spinner
+        android:id="@+id/tahunWisudaEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="430dp"
+        android:layout_marginRight="15dp"
+        android:backgroundTint="#FFFFFF"
+        android:entries="@array/tahun_wisuda_list"
+        android:prompt="@array/tahun_wisuda_list" />
+
+    <Button
+        android:id="@+id/btnEdit"
+        android:layout_width="124dp"
+        android:layout_height="59dp"
+        android:layout_marginLeft="260dp"
+        android:layout_marginTop="480dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="50dp"
+        android:backgroundTint="#656B74"
+        android:text="Edit"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+</RelativeLayout>
