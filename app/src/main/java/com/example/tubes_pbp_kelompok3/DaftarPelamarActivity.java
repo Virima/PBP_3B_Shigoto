@@ -38,7 +38,6 @@ public class DaftarPelamarActivity extends AppCompatActivity {
                 OnClickRegister();
             }
         });
-
     }
 
     private void setAtribut() {
@@ -57,6 +56,8 @@ public class DaftarPelamarActivity extends AppCompatActivity {
         mTahunWisuda = findViewById(R.id.tahunWisudaPlmr);
         mPekerjaanDiinginkan = findViewById(R.id.pekerjaanImpianPlmr);
         mLokasi = findViewById(R.id.penempatanPlmr);
+
+        mRegisterBtn = findViewById(R.id.btnDaftarPlmr);
     }
 
     private void OnClickRegister(){

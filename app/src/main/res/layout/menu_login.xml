@@ -23,7 +23,7 @@
         app:srcCompat="@drawable/shigoto_logo" />
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/emailLogin"
         android:layout_width="wrap_content"
         android:layout_height="69dp"
         android:layout_marginStart="47dp"
@@ -41,7 +41,7 @@
         android:textSize="25sp" />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/passwordLogin"
         android:layout_width="wrap_content"
         android:layout_height="64dp"
         android:layout_marginStart="47dp"
@@ -59,7 +59,7 @@
         android:textSize="25sp" />
 
     <Button
-        android:id="@+id/btnAsPelamar"
+        android:id="@+id/btnLogin"
         android:layout_width="287dp"
         android:layout_height="69dp"
         android:layout_marginLeft="30dp"
