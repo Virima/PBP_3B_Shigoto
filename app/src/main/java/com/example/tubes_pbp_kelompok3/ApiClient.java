@@ -6,6 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ApiClient {
     public static final String BASE_URL="https://tubespbpkelompok3.firebaseio.com";
     public static Retrofit retrofit = null;
+
     public static Retrofit getClient() {
         if(retrofit == null) {
             retrofit = new Retrofit.Builder()
