@@ -14,7 +14,7 @@
             android:background="#919191">
 
             <Button
-                android:id="@+id/btnDaftar"
+                android:id="@+id/btnDaftarPlmr"
                 android:layout_width="121dp"
                 android:layout_height="72dp"
                 android:layout_marginLeft="200dp"
@@ -27,7 +27,7 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/namaLengkap"
+                android:id="@+id/namaPlmr"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -39,7 +39,7 @@
                 android:inputType="textPersonName" />
 
             <EditText
-                android:id="@+id/email"
+                android:id="@+id/emailPlmr"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -51,7 +51,7 @@
                 android:inputType="textEmailAddress" />
 
             <EditText
-                android:id="@+id/password"
+                android:id="@+id/passwordPlmr"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -63,7 +63,7 @@
                 android:inputType="textPassword" />
 
             <EditText
-                android:id="@+id/alamat"
+                android:id="@+id/alamatPlmr"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -75,7 +75,7 @@
                 android:inputType="text" />
 
             <EditText
-                android:id="@+id/usia"
+                android:id="@+id/usiaPlmr"
                 android:layout_width="103dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -87,7 +87,7 @@
                 android:inputType="number" />
 
             <EditText
-                android:id="@+id/pekerjaanTerakhir"
+                android:id="@+id/pekerjaanTerakhirPlmr"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -99,7 +99,7 @@
                 android:inputType="number" />
 
             <EditText
-                android:id="@+id/gajiBulanan"
+                android:id="@+id/gajiBulananPlmr"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -140,7 +140,7 @@
             </RadioGroup>
 
             <Spinner
-                android:id="@+id/pendidikan"
+                android:id="@+id/pendidikanPlmr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -151,7 +151,7 @@
                 android:prompt="@array/pendidikan_terakhir_list" />
 
             <Spinner
-                android:id="@+id/tahunWisuda"
+                android:id="@+id/tahunWisudaPlmr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -162,7 +162,7 @@
                 android:prompt="@array/tahun_wisuda_list" />
 
             <Spinner
-                android:id="@+id/pekerjaan"
+                android:id="@+id/pekerjaanPlmr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -173,7 +173,7 @@
                 android:prompt="@array/pekerjaan_list" />
 
             <Spinner
-                android:id="@+id/penempatan"
+                android:id="@+id/penempatanPlmr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
