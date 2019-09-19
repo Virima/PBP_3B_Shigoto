@@ -111,7 +111,7 @@
                 android:inputType="number" />
 
             <RadioGroup
-                android:id="@+id/RadioGroup"
+                android:id="@+id/RadioGroupJKPlmr"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -162,7 +162,7 @@
                 android:prompt="@array/tahun_wisuda_list" />
 
             <Spinner
-                android:id="@+id/pekerjaanPlmr"
+                android:id="@+id/pekerjaanImpianPlmr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
