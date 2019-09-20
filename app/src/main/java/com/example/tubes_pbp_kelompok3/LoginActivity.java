@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.tubes_pbp_kelompok3.ui.home.HomeFragment;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -80,7 +82,7 @@ public class LoginActivity extends AppCompatActivity {
                                     // akan diparsing ke activity selanjutnya.
                                     Toast.makeText(mContext, "BERHASIL LOGIN", Toast.LENGTH_SHORT).show();
                                     String nama = jsonRESULTS.getJSONObject("user").getString("nama");
-                                    Intent intent = new Intent(mContext, MainActivity.class);
+                                    Intent intent = new Intent(mContext, HomeFragment.class);
                                     intent.putExtra("result_nama", nama);
                                     startActivity(intent);
                                 } else {
