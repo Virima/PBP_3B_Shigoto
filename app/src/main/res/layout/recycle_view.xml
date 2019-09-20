@@ -11,49 +11,57 @@
             android:id="@+id/RVNama"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nama Perusahaan" />
+            android:text="Nama Perusahaan"
+            android:textColor="#FFFFFF"/>
 
         <TextView
             android:id="@+id/RVEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Email" />
+            android:text="Email"
+            android:textColor="#FFFFFF"/>
 
         <TextView
             android:id="@+id/RVJenisPekerjaan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Jabatan" />
+            android:text="Jabatan"
+            android:textColor="#FFFFFF"/>
 
         <TextView
             android:id="@+id/RVUsiaMin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Usia Minimal" />
+            android:text="Usia Minimal"
+            android:textColor="#FFFFFF"/>
 
         <TextView
             android:id="@+id/RVUsiaMax"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Usia Maksimal" />
+            android:text="Usia Maksimal"
+            android:textColor="#FFFFFF"/>
 
         <TextView
             android:id="@+id/RVPendidikanMin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pendidikan Minimal" />
+            android:text="Pendidikan Minimal"
+            android:textColor="#FFFFFF"/>
 
         <TextView
             android:id="@+id/RVLokasi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Penempatan Kerja" />
+            android:text="Penempatan Kerja"
+            android:textColor="#FFFFFF"/>
 
         <TextView
             android:id="@+id/RVGaji"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Gaji Bulanan" />
+            android:text="Gaji Bulanan"
+            android:textColor="#FFFFFF"/>
 
 
     </LinearLayout>

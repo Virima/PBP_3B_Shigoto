@@ -12,6 +12,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -98,6 +101,7 @@ public class DaftarPelamarActivity extends AppCompatActivity {
                 public void onResponse(Call<String> call, Response<String> response) {
                     Toast.makeText(DaftarPelamarActivity.this, "Success",Toast.LENGTH_SHORT).show();
                     startIntent();
+
                 }
 
                 public  void onFailure(Call<String> call, Throwable t){

@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private Button mDaftarBtn;
     private Button mLoginBtn;
-    private EditText mEmail, mPassword;
+    private EditText mEmailLogin, mPasswordLogin;
 
     ProgressDialog loading;
     Context mContext;
@@ -69,7 +69,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void requestLogin(){
-        mApiService.loginRequest(mEmail.getText().toString(), mPassword.getText().toString())
+        mApiService.loginRequest(mEmailLogin.getText().toString(), mPasswordLogin.getText().toString())
                 .enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -79,10 +79,9 @@ public class LoginActivity extends AppCompatActivity {
                                 JSONObject jsonRESULTS = new JSONObject(response.body().string());
                                 if (jsonRESULTS.getString("error").equals("false")){
                                     // Jika login berhasil maka data nama yang ada di response API
-                                    // akan diparsing ke activity selanjutnya.
                                     Toast.makeText(mContext, "BERHASIL LOGIN", Toast.LENGTH_SHORT).show();
                                     String nama = jsonRESULTS.getJSONObject("user").getString("nama");
-                                    Intent intent = new Intent(mContext, HomeFragment.class);
+                                    Intent intent = new Intent(mContext, HomeFragmentActivity.class);
                                     intent.putExtra("result_nama", nama);
                                     startActivity(intent);
                                 } else {

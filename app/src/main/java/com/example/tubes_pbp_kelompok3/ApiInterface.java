@@ -8,6 +8,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Part;
 import retrofit2.http.Path;
 
@@ -34,13 +35,11 @@ public interface ApiInterface {
                             @Field("ekspektasi_gaji") String ekspektasi_gaji);
 
 
-    // Fungsi ini untuk memanggil API http://10.0.2.2/mahasiswa/login.php
     @FormUrlEncoded
     @POST("login.php")
     Call<ResponseBody> loginRequest(@Field("email") String email,
                                     @Field("password") String password);
 
-    // Fungsi ini untuk memanggil API http://10.0.2.2/mahasiswa/register.php
     @FormUrlEncoded
     @POST("register.php")
     Call<ResponseBody> registerRequest(@Field("nama") String nama,
