@@ -13,6 +13,8 @@ import retrofit2.http.Part;
 import retrofit2.http.Path;
 
 public interface ApiInterface {
+
+    ////// API PELAMAR //////
     @GET("pelamar/tampil")
     Call<List<PelamarDAO>> getPelamar();
 
@@ -33,6 +35,20 @@ public interface ApiInterface {
                             @Field("pekerjaan_impian") String pekerjaan_impian,
                             @Field("lokasi") String lokasi,
                             @Field("ekspektasi_gaji") String ekspektasi_gaji);
+
+    ///// API PERUSAHAAN ////
+    @POST("perusahaan/tambah")
+    @FormUrlEncoded
+    Call<String> addPerusahaan(@Field("nama") String nama,
+                               @Field("email") String email,
+                               @Field("password") String password,
+                               @Field("pekerjaan") String pekerjaan,
+                               @Field("usiaMin") String usiaMin,
+                               @Field("usiaMax") String usiaMax,
+                               @Field("pendidikan") String pendidikan,
+                               @Field("penempatan") String penempatan,
+                               @Field("gajiBulanan") String gajiBulanan);
+
 
 
     @FormUrlEncoded
