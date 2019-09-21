@@ -2,6 +2,7 @@ package com.example.tubes_pbp_kelompok3;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,6 +29,9 @@ public class DaftarPelamarActivity extends AppCompatActivity {
     private Spinner mPendidikanTerakhir, mTahunWisuda;
     private Spinner mPekerjaanDiinginkan, mLokasi;
     private Button mRegisterBtn;
+
+
+    DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,7 +105,6 @@ public class DaftarPelamarActivity extends AppCompatActivity {
                 public void onResponse(Call<String> call, Response<String> response) {
                     Toast.makeText(DaftarPelamarActivity.this, "Success",Toast.LENGTH_SHORT).show();
                     startIntent();
-
                 }
 
                 public  void onFailure(Call<String> call, Throwable t){
@@ -116,4 +119,31 @@ public class DaftarPelamarActivity extends AppCompatActivity {
         Intent intent= new Intent(getApplicationContext(), LoginActivity.class);
         startActivity(intent);
     }
+
+    /*
+    private void addPelamar() {
+
+        String nama = mNama.getText().toString().trim();
+        String email = mEmail.getText().toString().trim();
+        String password = mPassword.getText().toString().trim();
+        String alamat = mAlamat.getText().toString().trim();
+        int usia = mUsia.getText().toString().trim();
+
+
+        //checking if the value is provided or not Here, you can Add More Validation as you required
+
+        //it will create a unique id and we will use it as the Primary Key for our User
+        String id = databaseReference.push().getKey();
+        //creating an User Object
+        PelamarDAO User = new PelamarDAO( nama,  email, password, String alamat, int usia, String jenis_kelamin,
+                String pekerjaan_terakhir, String pendidikan_terakhir, int tahun_wisuda,
+                String pekerjaan_diinginkan, String lokasi_kerja, int ekspektasi_gaji);
+        //Saving the User
+        databaseReference.child(email).setValue(PelamarDAO);
+
+        mNama.setText("");
+        mUsia.setText("");
+        mEmail.setText("");
+        Toast.makeText(this, "User added", Toast.LENGTH_LONG).show();
+    } */
 }

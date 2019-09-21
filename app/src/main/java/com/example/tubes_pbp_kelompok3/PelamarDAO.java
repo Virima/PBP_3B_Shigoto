@@ -43,22 +43,21 @@ public class PelamarDAO {
     public double getEkspektasi_gaji() {return ekspektasi_gaji;}
     public void setEkspektasi_gaji(double ekspektasi_gaji ) {this.ekspektasi_gaji=ekspektasi_gaji;}
 
-    public PelamarDAO(String nama, String email, String password, String alamat, String jenis_kelamin, String pekerjaan_terakhir,
-                        String pendidikan_terakhir, String pekerjaan_diinginkan, String lokasi_kerja, int usia,
-                        int tahun_wisuda, int ekspektasi_gaji) {
+    public PelamarDAO(String nama, String email, String password, String alamat, int usia, String jenis_kelamin,
+                        String pekerjaan_terakhir, String pendidikan_terakhir, int tahun_wisuda,
+                        String pekerjaan_diinginkan, String lokasi_kerja, int ekspektasi_gaji) {
         this.nama=nama;
         this.email=email;
         this.password=password;
         this.alamat=alamat;
+        this.usia=usia;
         this.jenis_kelamin=jenis_kelamin;
         this.pekerjaan_terakhir=pekerjaan_terakhir;
         this.pendidikan_terakhir=pendidikan_terakhir;
+        this.tahun_wisuda=tahun_wisuda;
         this.pekerjaan_diinginkan=pekerjaan_diinginkan;
         this.lokasi_kerja=lokasi_kerja;
-        this.usia=usia;
-        this.tahun_wisuda=tahun_wisuda;
         this.ekspektasi_gaji=ekspektasi_gaji;
     }
-
 
 }
