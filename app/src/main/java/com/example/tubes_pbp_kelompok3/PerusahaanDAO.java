@@ -31,4 +31,18 @@ public class PerusahaanDAO {
 
     public int getUsiaMax() {return usiaMax;}
     public void setUsiaMax(int usiaMax) {this.usiaMax=usiaMax;}
+
+    public PerusahaanDAO(String namaP, String emailP, String passwordP, String jenis_pekerjaan, String pendidikan_minimum,
+                         String lokasiP, String gajiP, int usiaMin, int usiaMax)
+    {
+        this.namaP=namaP;
+        this.emailP=emailP;
+        this.passwordP=passwordP;
+        this.jenis_pekerjaan=jenis_pekerjaan;
+        this.pendidikan_minimum=pendidikan_minimum;
+        this.lokasiP=lokasiP;
+        this.gajiP=gajiP;
+        this.usiaMin=usiaMin;
+        this.usiaMax=usiaMax;
+    }
 }
