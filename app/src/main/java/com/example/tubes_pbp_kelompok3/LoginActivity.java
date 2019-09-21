@@ -50,7 +50,10 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 loading = ProgressDialog.show(mContext, null, "Harap Tunggu...", true, false);
-                requestLogin();
+
+                //requestLogin();
+                Intent intent = new Intent(LoginActivity.this, HomeFragmentActivity.class);
+                startActivity(intent);
             }
         });
 
