@@ -32,6 +32,10 @@ public class PerusahaanDAO {
     public String getUsiaMax() {return usiaMax;}
     public void setUsiaMax(String usiaMax) {this.usiaMax=usiaMax;}
 
+    public PerusahaanDAO() {
+
+    }
+
     public PerusahaanDAO(String namaP, String emailP, String passwordP, String jenis_pekerjaan, String pendidikan_minimum,
                          String lokasiP, String gajiP, String usiaMin, String usiaMax)
     {

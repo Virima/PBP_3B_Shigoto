@@ -181,7 +181,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
 
         else if (i == R.id.btnDaftarSkrng) {
-            signUp();
+            Intent intent = new Intent(getApplicationContext(), DaftarSbgActivity.class);
+            startActivity(intent);
         }
     }
 
