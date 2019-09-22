@@ -11,6 +11,7 @@ public class SendViewModel extends ViewModel {
     public SendViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("");
+
     }
 
     public LiveData<String> getText() {

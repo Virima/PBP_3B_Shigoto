@@ -1,71 +1,42 @@
 {
   "project_info": {
-    "project_number": "4417541463",
-    "firebase_url": "https://tubespbp-aa10d.firebaseio.com",
-    "project_id": "tubespbp-aa10d",
-    "storage_bucket": "tubespbp-aa10d.appspot.com"
+    "project_number": "729710879660",
+    "firebase_url": "https://tubespbpkelompok3.firebaseio.com",
+    "project_id": "tubespbpkelompok3",
+    "storage_bucket": "tubespbpkelompok3.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:4417541463:android:815311c6a5c353c4d61a12",
+        "mobilesdk_app_id": "1:729710879660:android:28e0106a92453579bb1009",
         "android_client_info": {
           "package_name": "com.example.tubes_pbp_kelompok3"
         }
       },
       "oauth_client": [
         {
-          "client_id": "4417541463-korbo34nf57kpp3i281alg4jgt4a7153.apps.googleusercontent.com",
+          "client_id": "729710879660-0h6qk8nhd1t9k88lcpoa1atkgf58gj86.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.tubes_pbp_kelompok3",
-            "certificate_hash": "25ab78b3fba8e7b7c4bfdbf936200fca83968e40"
+            "certificate_hash": "a74e47b10a0af3b62e5541268f31361376f09925"
           }
         },
         {
-          "client_id": "4417541463-trllcqlqf978umnhvklkp401l0tbp364.apps.googleusercontent.com",
+          "client_id": "729710879660-sekf56ldu6okii6pph9m92mpn41qj9vn.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA5JditQAkU4eGtdY3v0R94HdfutjcOGx4"
+          "current_key": "AIzaSyCFoe-Un7yHDjM1kQdw6TyKU9YerTBBljo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "4417541463-trllcqlqf978umnhvklkp401l0tbp364.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:4417541463:android:806461bb84f16c62d61a12",
-        "android_client_info": {
-          "package_name": "com.tubespbp"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "4417541463-trllcqlqf978umnhvklkp401l0tbp364.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyA5JditQAkU4eGtdY3v0R94HdfutjcOGx4"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "4417541463-trllcqlqf978umnhvklkp401l0tbp364.apps.googleusercontent.com",
+              "client_id": "729710879660-sekf56ldu6okii6pph9m92mpn41qj9vn.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
