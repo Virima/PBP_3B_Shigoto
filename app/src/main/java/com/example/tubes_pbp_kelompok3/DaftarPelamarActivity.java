@@ -30,8 +30,7 @@ public class DaftarPelamarActivity extends AppCompatActivity {
     private Spinner mPekerjaanDiinginkan, mLokasi;
     private Button mRegisterBtn;
 
-
-    DatabaseReference databaseReference;
+    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,13 +57,13 @@ public class DaftarPelamarActivity extends AppCompatActivity {
         mRadioGroup = findViewById(R.id.RadioGroupJKPlmr);
         int selectedId = mRadioGroup.getCheckedRadioButtonId();
         mJenisKelamin = findViewById(selectedId);
-
         mPendidikanTerakhir = findViewById(R.id.pendidikanPlmr);
         mTahunWisuda = findViewById(R.id.tahunWisudaPlmr);
         mPekerjaanDiinginkan = findViewById(R.id.pekerjaanImpianPlmr);
         mLokasi = findViewById(R.id.penempatanPlmr);
 
         mRegisterBtn = findViewById(R.id.btnDaftarPlmr);
+        mDatabase = FirebaseDatabase.getInstance().getReference();
     }
 
     private void OnClickRegister(){
@@ -82,6 +81,7 @@ public class DaftarPelamarActivity extends AppCompatActivity {
         {
             Toast.makeText(this, "Isilah semua field yang disediakan!",Toast.LENGTH_SHORT).show();
         }else{
+            /*
             int selectedId=mRadioGroup.getCheckedRadioButtonId();
             mJenisKelamin=findViewById(selectedId);
 
@@ -111,7 +111,24 @@ public class DaftarPelamarActivity extends AppCompatActivity {
                     Toast.makeText(DaftarPelamarActivity.this,"Permasalahan Koneksi",Toast.LENGTH_SHORT).show();
                 }
 
-            });
+            }); */
+            String nama= mNama.getText().toString();
+            String email=mEmail.getText().toString();
+            String password=mPassword.getText().toString();
+            String alamat=mAlamat.getText().toString();
+            String usia=mUsia.getText().toString();
+            String jenisKelamin=mJenisKelamin.getText().toString();
+            String pekerjaanTerakhir=mPekerjaanTerakhir.getText().toString();
+            String pendidikanTerakhir=mPendidikanTerakhir.getSelectedItem().toString();
+            String tahunWisuda=mTahunWisuda.getSelectedItem().toString();
+            String pekerjaanImpian=mPekerjaanDiinginkan.getSelectedItem().toString();
+            String lokasi=mLokasi.getSelectedItem().toString();
+            String ekspektasiGaji=mGaji.getText().toString();
+            addPelamar(nama, email, password, alamat, usia, jenisKelamin, pekerjaanTerakhir, pendidikanTerakhir,
+                    tahunWisuda, pekerjaanImpian, lokasi, ekspektasiGaji);
+
+            Toast.makeText(DaftarPelamarActivity.this, "Success",Toast.LENGTH_SHORT).show();
+            startIntent();
         }
     }
 
@@ -120,30 +137,12 @@ public class DaftarPelamarActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    /*
-    private void addPelamar() {
-
-        String nama = mNama.getText().toString().trim();
-        String email = mEmail.getText().toString().trim();
-        String password = mPassword.getText().toString().trim();
-        String alamat = mAlamat.getText().toString().trim();
-        int usia = mUsia.getText().toString().trim();
-
-
-        //checking if the value is provided or not Here, you can Add More Validation as you required
-
-        //it will create a unique id and we will use it as the Primary Key for our User
-        String id = databaseReference.push().getKey();
-        //creating an User Object
-        PelamarDAO User = new PelamarDAO( nama,  email, password, String alamat, int usia, String jenis_kelamin,
-                String pekerjaan_terakhir, String pendidikan_terakhir, int tahun_wisuda,
-                String pekerjaan_diinginkan, String lokasi_kerja, int ekspektasi_gaji);
-        //Saving the User
-        databaseReference.child(email).setValue(PelamarDAO);
-
-        mNama.setText("");
-        mUsia.setText("");
-        mEmail.setText("");
-        Toast.makeText(this, "User added", Toast.LENGTH_LONG).show();
-    } */
+    private void addPelamar(String nama, String email, String password, String alamat, String usia,
+                               String jenis_kelamin, String pekerjaanTerakhir, String pendidikanTerakhir,
+                                String tahunWisuda, String pekerjaanImpian, String lokasi, String gaji)
+    {
+        PelamarDAO pelamarDAO = new PelamarDAO(nama, email, password, alamat, usia, jenis_kelamin,
+                pekerjaanTerakhir, pendidikanTerakhir, tahunWisuda, pekerjaanImpian, lokasi, gaji);
+        mDatabase.child("Pelamar").child(email).setValue(pelamarDAO);
+    }
 }

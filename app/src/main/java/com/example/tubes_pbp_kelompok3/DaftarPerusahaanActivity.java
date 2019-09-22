@@ -23,6 +23,8 @@ public class DaftarPerusahaanActivity extends AppCompatActivity {
     private EditText mUsiaMin, mUsiaMax, mGajiBulanan;
     private Button mRegisterBtn;
 
+    private DatabaseReference mDatabase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +35,7 @@ public class DaftarPerusahaanActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 onClickRegister();
+
             }
         });
     }
@@ -48,6 +51,7 @@ public class DaftarPerusahaanActivity extends AppCompatActivity {
         mPenempatan = findViewById(R.id.penempatan);
         mGajiBulanan = findViewById(R.id.gajiBulanan);
         mRegisterBtn = findViewById(R.id.btnDaftar);
+        mDatabase = FirebaseDatabase.getInstance().getReference();
     }
 
     private void onClickRegister(){
@@ -63,7 +67,7 @@ public class DaftarPerusahaanActivity extends AppCompatActivity {
         {
             Toast.makeText(this, "Isilah semua field yang disediakan!",Toast.LENGTH_SHORT).show();
         }else{
-
+            /*
             ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
             Call<String> PerusahaanDAOCALL = apiService.addPerusahaan(
                     mNama.getText().toString(),
@@ -87,12 +91,33 @@ public class DaftarPerusahaanActivity extends AppCompatActivity {
                 public  void onFailure(Call<String> call, Throwable t){
                     Toast.makeText(DaftarPerusahaanActivity.this,"Permasalahan Koneksi",Toast.LENGTH_SHORT).show();
                 }
-            });
+            }); */
+            String nama= mNama.getText().toString();
+            String email=mEmail.getText().toString();
+            String password=mPassword.getText().toString();
+            String pekerjaan=mPekerjaan.getSelectedItem().toString();
+            String usiaMin=mUsiaMin.getText().toString();
+            String usiaMax=mUsiaMax.getText().toString();
+            String pendidikan=mPendidikan.getSelectedItem().toString();
+            String penempatan=mPenempatan.getSelectedItem().toString();
+            String gaji=mGajiBulanan.getText().toString();
+            addPerusahaan(nama, email, password, pekerjaan, pendidikan, penempatan,gaji, usiaMin, usiaMax);
+
+            Toast.makeText(DaftarPerusahaanActivity.this, "Success",Toast.LENGTH_SHORT).show();
+            startIntent();
         }
     }
 
     private void startIntent(){
         Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
         startActivity(intent);
+    }
+
+    private void addPerusahaan(String nama, String email, String password, String pekerjaan, String pendidikan,
+                               String penempatan, String gajiBulanan, String usiaMin, String usiaMax)
+    {
+        PerusahaanDAO perusahaanDAO = new PerusahaanDAO(nama, email, password, pekerjaan, pendidikan, penempatan,
+                                    gajiBulanan, usiaMin, usiaMax);
+        mDatabase.child("Perusahaan").child(email).setValue(perusahaanDAO);
     }
 }

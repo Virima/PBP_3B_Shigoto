@@ -3,7 +3,7 @@ package com.example.tubes_pbp_kelompok3;
 public class PerusahaanDAO {
     String namaP, emailP, passwordP, jenis_pekerjaan, pendidikan_minimum;
     String lokasiP, gajiP;
-    int usiaMin, usiaMax;
+    String usiaMin, usiaMax;
 
     public String getNamaP() {return namaP;}
     public void setNamaP(String namaP) {this.namaP=namaP;}
@@ -26,14 +26,14 @@ public class PerusahaanDAO {
     public String getGajiP() {return gajiP;}
     public void setGajiP(String gajiP) {this.gajiP=gajiP;}
 
-    public int getUsiaMin() {return usiaMin;}
-    public void setUsiaMin(int usiaMin) {this.usiaMin=usiaMin;}
+    public String getUsiaMin() {return usiaMin;}
+    public void setUsiaMin(String usiaMin) {this.usiaMin=usiaMin;}
 
-    public int getUsiaMax() {return usiaMax;}
-    public void setUsiaMax(int usiaMax) {this.usiaMax=usiaMax;}
+    public String getUsiaMax() {return usiaMax;}
+    public void setUsiaMax(String usiaMax) {this.usiaMax=usiaMax;}
 
     public PerusahaanDAO(String namaP, String emailP, String passwordP, String jenis_pekerjaan, String pendidikan_minimum,
-                         String lokasiP, String gajiP, int usiaMin, int usiaMax)
+                         String lokasiP, String gajiP, String usiaMin, String usiaMax)
     {
         this.namaP=namaP;
         this.emailP=emailP;
