@@ -145,4 +145,6 @@ public class DaftarPelamarActivity extends AppCompatActivity {
                 pekerjaanTerakhir, pendidikanTerakhir, tahunWisuda, pekerjaanImpian, lokasi, gaji);
         mDatabase.child("Pelamar").child(email).setValue(pelamarDAO);
     }
+
+
 }

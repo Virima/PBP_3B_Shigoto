@@ -2,18 +2,27 @@ package com.example.tubes_pbp_kelompok3;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class DaftarPerusahaanActivity extends AppCompatActivity {
@@ -22,8 +31,10 @@ public class DaftarPerusahaanActivity extends AppCompatActivity {
     private Spinner mPekerjaan, mPendidikan, mPenempatan;
     private EditText mUsiaMin, mUsiaMax, mGajiBulanan;
     private Button mRegisterBtn;
+    private static final String TAG = "LoginActivity";
 
     private DatabaseReference mDatabase;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +63,7 @@ public class DaftarPerusahaanActivity extends AppCompatActivity {
         mGajiBulanan = findViewById(R.id.gajiBulanan);
         mRegisterBtn = findViewById(R.id.btnDaftar);
         mDatabase = FirebaseDatabase.getInstance().getReference();
+        mAuth = FirebaseAuth.getInstance();
     }
 
     private void onClickRegister(){
@@ -101,6 +113,7 @@ public class DaftarPerusahaanActivity extends AppCompatActivity {
             String pendidikan=mPendidikan.getSelectedItem().toString();
             String penempatan=mPenempatan.getSelectedItem().toString();
             String gaji=mGajiBulanan.getText().toString();
+
             addPerusahaan(nama, email, password, pekerjaan, pendidikan, penempatan,gaji, usiaMin, usiaMax);
 
             Toast.makeText(DaftarPerusahaanActivity.this, "Success",Toast.LENGTH_SHORT).show();
@@ -120,4 +133,5 @@ public class DaftarPerusahaanActivity extends AppCompatActivity {
                                     gajiBulanan, usiaMin, usiaMax);
         mDatabase.child("Perusahaan").child(email).setValue(perusahaanDAO);
     }
+
 }

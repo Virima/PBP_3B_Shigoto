@@ -46,4 +46,6 @@ public class DaftarSbgActivity extends AppCompatActivity {
         mPelamarBtn = findViewById(R.id.btnSbgPelamar);
         mPerusahaanBtn = findViewById(R.id.btnSbgPerusahaan);
     }
+
+
 }
