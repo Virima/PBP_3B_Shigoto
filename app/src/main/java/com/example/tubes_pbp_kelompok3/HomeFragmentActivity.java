@@ -26,7 +26,7 @@ import java.util.List;
 public class HomeFragmentActivity extends AppCompatActivity {
 
     EditText editTextName, editTextEmail, editTextNumber;
-    ListView listViewPerusahaan;
+    ListView listViewP;
 
     List<PerusahaanDAO> Users;
     DatabaseReference databaseReference;
@@ -44,14 +44,14 @@ public class HomeFragmentActivity extends AppCompatActivity {
         findViews();
 
         // to maintian click listner of views
-        //initListner();
+        initListner();
     }
 
     private void findViews() {
         //getRefrance for user table
-        databaseReference = FirebaseDatabase.getInstance().getReference("Perusahaan");
+        databaseReference = FirebaseDatabase.getInstance().getReference();
 
-        listViewPerusahaan = (ListView) findViewById(R.id.listViewPerusahaan);
+        listViewP = (ListView) findViewById(R.id.listViewPerusahaan);
         //list for store objects of user
         Users = new ArrayList<>();
     }
@@ -77,7 +77,7 @@ public class HomeFragmentActivity extends AppCompatActivity {
                 //creating Userlist adapter
                 PerusahaanList UserAdapter = new PerusahaanList(HomeFragmentActivity.this, Users);
                 //attaching adapter to the listview
-                listViewPerusahaan.setAdapter(UserAdapter);
+                listViewP.setAdapter(UserAdapter);
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -89,7 +89,7 @@ public class HomeFragmentActivity extends AppCompatActivity {
     private void initListner() {
 
         // list item click listener
-        listViewPerusahaan.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listViewP.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 PerusahaanDAO User = Users.get(i);
