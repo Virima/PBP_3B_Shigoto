@@ -19,7 +19,7 @@ public class LogoutFragmentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //setContentView(R.layout.fragment_logout);
+        setContentView(R.layout.welcome_page);
         FirebaseAuth.getInstance().signOut();
 
         menu = findViewById(R.id.nav_logout);

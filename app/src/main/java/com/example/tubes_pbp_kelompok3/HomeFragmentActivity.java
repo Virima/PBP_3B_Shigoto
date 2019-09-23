@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -27,6 +28,7 @@ public class HomeFragmentActivity extends AppCompatActivity {
 
     EditText editTextName, editTextEmail, editTextNumber;
     ListView listViewP;
+    Fragment home;
 
     List<PerusahaanDAO> Users;
     DatabaseReference databaseReference;
@@ -43,6 +45,7 @@ public class HomeFragmentActivity extends AppCompatActivity {
         // method for find ids of views
         findViews();
 
+
         // to maintian click listner of views
         initListner();
     }
@@ -54,6 +57,7 @@ public class HomeFragmentActivity extends AppCompatActivity {
         listViewP = (ListView) findViewById(R.id.listViewPerusahaan);
         //list for store objects of user
         Users = new ArrayList<>();
+
     }
 
     @Override
