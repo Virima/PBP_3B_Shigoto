@@ -1,9 +1,27 @@
 package com.example.tubes_pbp_kelompok3;
 
 public class PerusahaanDAO {
-    String namaP, emailP, passwordP, jenis_pekerjaan, pendidikan_minimum;
-    String lokasiP, gajiP;
-    String usiaMin, usiaMax;
+    private String namaP, emailP, passwordP, jenis_pekerjaan, pendidikan_minimum;
+    private String lokasiP, gajiP;
+    private String usiaMin, usiaMax;
+
+    public PerusahaanDAO(String namaP, String emailP, String passwordP, String jenis_pekerjaan, String pendidikan_minimum,
+                         String lokasiP, String gajiP, String usiaMin, String usiaMax)
+    {
+        this.namaP=namaP;
+        this.emailP=emailP;
+        this.passwordP=passwordP;
+        this.jenis_pekerjaan=jenis_pekerjaan;
+        this.pendidikan_minimum=pendidikan_minimum;
+        this.lokasiP=lokasiP;
+        this.gajiP=gajiP;
+        this.usiaMin=usiaMin;
+        this.usiaMax=usiaMax;
+    }
+
+    public PerusahaanDAO() {
+
+    }
 
     public String getNamaP() {return namaP;}
     public void setNamaP(String namaP) {this.namaP=namaP;}
@@ -32,21 +50,4 @@ public class PerusahaanDAO {
     public String getUsiaMax() {return usiaMax;}
     public void setUsiaMax(String usiaMax) {this.usiaMax=usiaMax;}
 
-    public PerusahaanDAO() {
-
-    }
-
-    public PerusahaanDAO(String namaP, String emailP, String passwordP, String jenis_pekerjaan, String pendidikan_minimum,
-                         String lokasiP, String gajiP, String usiaMin, String usiaMax)
-    {
-        this.namaP=namaP;
-        this.emailP=emailP;
-        this.passwordP=passwordP;
-        this.jenis_pekerjaan=jenis_pekerjaan;
-        this.pendidikan_minimum=pendidikan_minimum;
-        this.lokasiP=lokasiP;
-        this.gajiP=gajiP;
-        this.usiaMin=usiaMin;
-        this.usiaMax=usiaMax;
-    }
 }

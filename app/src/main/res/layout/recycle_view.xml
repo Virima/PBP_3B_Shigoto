@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Usia Minimal"
-            android:textColor="#FFFFFF"/>
+            android:textColor="#FFFFFF" />
 
         <TextView
             android:id="@+id/RVUsiaMax"
@@ -47,14 +47,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Pendidikan Minimal"
-            android:textColor="#FFFFFF"/>
+            android:textColor="#FFFFFF" />
 
         <TextView
             android:id="@+id/RVLokasi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Penempatan Kerja"
-            android:textColor="#FFFFFF"/>
+            android:textColor="#FFFFFF" />
 
         <TextView
             android:id="@+id/RVGaji"

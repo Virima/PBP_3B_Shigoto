@@ -54,8 +54,14 @@ public class HomeFragment extends Fragment {
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
-        ListView listview =(ListView) root.findViewById(R.id.listViewPerusahaan);
+        ListView listview =(ListView) root.findViewById(R.id.listViewUsers);
         final String[] items = new String[] {"Item 1", "Item 2", "Item 3"};
+
+        databaseReference = FirebaseDatabase.getInstance().getReference("Perusahaan");
+        listViewP = (ListView) root.findViewById(R.id.listViewUsers);
+
+        //list for store objects of user
+        Users = new ArrayList<>();
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, items);
         listview.setAdapter(adapter);
@@ -65,7 +71,7 @@ public class HomeFragment extends Fragment {
                 PerusahaanDAO User = Users.get(i);
                 CallUpdateAndDeleteDialog(User.getNamaP(), User.getEmailP(),User.getPasswordP(),User.getJenis_pekerjaan(),
                         User.getPendidikan_minimum(), User.getLokasiP(), User.getGajiP(), User.getUsiaMin(),
-                        User.getUsiaMax());;
+                        User.getUsiaMax());
             }
         });
 
@@ -79,8 +85,7 @@ public class HomeFragment extends Fragment {
         });
 
         // method for find ids of views
-        findViews();
-
+        //findViews();
 
         // to maintian click listner of views
         initListner();
@@ -217,17 +222,15 @@ public class HomeFragment extends Fragment {
             }
         });
     }
-
+    /*
     private void findViews() {
         databaseReference = FirebaseDatabase.getInstance().getReference("Perusahaan");
 
-
-        listViewP = (ListView) getView().findViewById(R.id.listViewPerusahaan);
+        listViewP = getView().findViewById(R.id.listViewUsers);
 
         //list for store objects of user
         Users = new ArrayList<>();
 
-    }
-
+    } */
 
 }

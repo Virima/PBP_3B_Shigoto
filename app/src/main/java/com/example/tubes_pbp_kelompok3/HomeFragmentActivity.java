@@ -55,7 +55,7 @@ public class HomeFragmentActivity extends AppCompatActivity {
     private void findViews() {
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
-        listViewP = (ListView) findViewById(R.id.listViewPerusahaan);
+        listViewP = (ListView) findViewById(R.id.listViewUsers);
         //list for store objects of user
         Users = new ArrayList<>();
 
