@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -48,10 +49,10 @@ public class HomeFragmentActivity extends AppCompatActivity {
 
         // to maintian click listner of views
         initListner();
+
     }
 
     private void findViews() {
-        //getRefrance for user table
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
         listViewP = (ListView) findViewById(R.id.listViewPerusahaan);

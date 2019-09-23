@@ -74,7 +74,8 @@ public class MainActivity extends AppCompatActivity {
         View hView2 =  navigationView.getHeaderView(0);
         TextView nav_user2 = (TextView)hView.findViewById(R.id.txtEmailProfil);
         nav_user2.setText(emailProfil);
-        */
+         */
+
     }
 
 

@@ -211,6 +211,7 @@ public class DaftarPelamarActivity extends AppCompatActivity {
     }
 
     private boolean validateForm() {
+
         boolean result = true;
         if (TextUtils.isEmpty(mEmail.getText().toString())) {
             mEmail.setError("Required");
