@@ -6,7 +6,7 @@
     android:orientation="vertical">
     <TextView
         android:padding="10dp"
-        android:text="Kelola Perusahaan "
+        android:text="Detail Perusahaan "
         android:textStyle="bold"
         android:textColor="#000"
         android:gravity="center"
@@ -15,26 +15,37 @@
 
 
     <EditText
-        android:id="@+id/updateNamaP"
+        android:id="@+id/updateNamaFav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nama Perusahaan" />
 
     <EditText
-        android:id="@+id/updateEmailP"
+        android:id="@+id/updateEmailFav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Email" />
 
     <EditText
-        android:id="@+id/updateJenisPekerjaan"
+        android:id="@+id/updateJenisPekerjaanFav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Jenis Pekerjaan" />
 
+    <EditText
+        android:id="@+id/updatePendidikanMinFav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Pendidikan Minimum" />
 
     <EditText
-        android:id="@+id/updateGajiBulanan"
+        android:id="@+id/updateLokasiFav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Penempatan Kerja" />
+
+    <EditText
+        android:id="@+id/updateGajiBulananFav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Gaji Bulanan" />
@@ -47,18 +58,12 @@
 
 
         <Button
-            android:id="@+id/buttonDeleteUser"
+            android:id="@+id/buttonAddFav"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Delete" />
+            android:text="Tambahkan ke Favorit" />
 
-        <Button
-            android:id="@+id/buttonUpdateUser"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Update" />
     </LinearLayout>
 
 
