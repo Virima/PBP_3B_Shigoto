@@ -6,7 +6,7 @@
     android:orientation="vertical">
     <TextView
         android:padding="10dp"
-        android:text="Detail Perusahaan "
+        android:text="Kelola Profil Pelamar"
         android:textStyle="bold"
         android:textColor="#000"
         android:gravity="center"
@@ -15,40 +15,29 @@
 
 
     <EditText
-        android:id="@+id/delNamaFav"
+        android:id="@+id/updateNamaPlmr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nama Perusahaan" />
+        android:hint="Nama Lengkap" />
 
     <EditText
-        android:id="@+id/delEmailFav"
+        android:id="@+id/updateEmailPlmr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Email" />
 
     <EditText
-        android:id="@+id/delJenisPekerjaanFav"
+        android:id="@+id/updateAlamatPlmr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Jenis Pekerjaan" />
+        android:hint="Alamat" />
+
 
     <EditText
-        android:id="@+id/delPendidikanMinFav"
+        android:id="@+id/updateUsiaPlmr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Pendidikan Minimum" />
-
-    <EditText
-        android:id="@+id/delLokasiFav"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Penempatan Kerja" />
-
-    <EditText
-        android:id="@+id/delGajiBulananFav"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Gaji Bulanan" />
+        android:hint="Usia" />
 
 
     <LinearLayout
@@ -56,14 +45,12 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-
         <Button
-            android:id="@+id/buttonDeleteFav"
+            android:id="@+id/buttonUpdatePlmr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Delete dari Favorit" />
-
+            android:text="Update" />
     </LinearLayout>
 
 

@@ -6,7 +6,7 @@
     android:orientation="vertical">
     <TextView
         android:padding="10dp"
-        android:text="Kelola Perusahaan "
+        android:text="Kelola Profil Perusahaan"
         android:textStyle="bold"
         android:textColor="#000"
         android:gravity="center"
@@ -44,14 +44,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-
-
-        <Button
-            android:id="@+id/buttonDeleteUser"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Delete" />
 
         <Button
             android:id="@+id/buttonUpdateUser"

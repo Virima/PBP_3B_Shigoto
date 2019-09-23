@@ -107,7 +107,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                //clearinxg the previous User list
+                //clearing the previous User list
                 Users.clear();
 
                 //getting all nodes
@@ -224,5 +224,7 @@ public class HomeFragment extends Fragment {
                 gajiBulanan, null, null);
         mDatabase.child("Favorit").child(nama).setValue(perusahaanDAO);
     }
+
+
 
 }

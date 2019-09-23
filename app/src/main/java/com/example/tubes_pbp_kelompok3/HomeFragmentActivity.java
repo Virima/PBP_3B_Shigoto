@@ -121,7 +121,7 @@ public class HomeFragmentActivity extends AppCompatActivity {
         updateTextemail.setText(email);
         updateTextmobileno.setText(jenis_pekerjaan);
         final Button buttonUpdate = (Button) dialogView.findViewById(R.id.buttonUpdateUser);
-        final Button buttonDelete = (Button) dialogView.findViewById(R.id.buttonDeleteUser);
+
         //username for set dialog title
         dialogBuilder.setTitle(nama);
         final AlertDialog b = dialogBuilder.create();
@@ -156,15 +156,6 @@ public class HomeFragmentActivity extends AppCompatActivity {
             }
         });
 
-        // Click listener for Delete data
-        buttonDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Method for delete data
-                deleteUser(email);
-                b.dismiss();
-            }
-        });
     }
 
     private boolean updateUser(String nama, String email, String password, String jenis_pekerjaan,

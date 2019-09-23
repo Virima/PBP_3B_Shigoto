@@ -37,7 +37,7 @@ public class SlideshowFragment extends Fragment {
     private SlideshowViewModel slideshowViewModel;
     List<PerusahaanDAO> Users;
     DatabaseReference databaseReference;
-    ListView listViewP;
+    ListView listViewFavorit;
 
     public EditText mNama, mEmail, mPassword, mJenisPerusahaan;
     private Spinner mPekerjaan, mPendidikan, mPenempatan;
@@ -53,7 +53,7 @@ public class SlideshowFragment extends Fragment {
         final String[] items = new String[] {"Item 1", "Item 2", "Item 3"};
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Favorit");
-        listViewP = (ListView) root.findViewById(R.id.listViewFavorit);
+        listViewFavorit = (ListView) root.findViewById(R.id.listViewFavorit);
 
         //list for store objects of user
         Users = new ArrayList<>();
@@ -91,7 +91,7 @@ public class SlideshowFragment extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                //clearinxg the previous User list
+                //clearing the previous User list
                 Users.clear();
 
                 //getting all nodes
@@ -104,7 +104,7 @@ public class SlideshowFragment extends Fragment {
                 //creating Userlist adapter
                 PerusahaanList UserAdapter = new PerusahaanList(getActivity(), Users);
                 //attaching adapter to the listview
-                listViewP.setAdapter(UserAdapter);
+                listViewFavorit.setAdapter(UserAdapter);
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -113,7 +113,7 @@ public class SlideshowFragment extends Fragment {
         });
     }
 
-    private void CallUpdateAndDeleteDialog(String nama, final String email, String password, String jenis_pekerjaan,
+    private void CallUpdateAndDeleteDialog(final String nama, final String email, String password, String jenis_pekerjaan,
                                            String pendidikan_minimum, String lokasiP, String gajiP, String usiaMinP,
                                            String usiaMaxP) {
 
@@ -121,18 +121,22 @@ public class SlideshowFragment extends Fragment {
 
 
         LayoutInflater inflater = getLayoutInflater();
-        final View dialogView = inflater.inflate(R.layout.manage_add_favorit, null);
+        final View dialogView = inflater.inflate(R.layout.manage_del_favorit, null);
         dialogBuilder.setView(dialogView);
         //Access Dialog views
-        final EditText updateTextname = (EditText) dialogView.findViewById(R.id.updateNamaFav);
-        final EditText updateTextemail = (EditText) dialogView.findViewById(R.id.updateEmailFav);
-        final EditText updateTextJenisPekerjaan = (EditText) dialogView.findViewById(R.id.updateJenisPekerjaanFav);
-        final EditText updateGaji= (EditText) dialogView.findViewById(R.id.updateGajiBulananFav);
+        final EditText updateTextname = (EditText) dialogView.findViewById(R.id.delNamaFav);
+        final EditText updateTextemail = (EditText) dialogView.findViewById(R.id.delEmailFav);
+        final EditText updateTextJenisPekerjaan = (EditText) dialogView.findViewById(R.id.delJenisPekerjaanFav);
+        final EditText updatePendidikanMin= (EditText) dialogView.findViewById(R.id.delPendidikanMinFav);
+        final EditText updateLokasi= (EditText) dialogView.findViewById(R.id.delLokasiFav);
+        final EditText updateGaji= (EditText) dialogView.findViewById(R.id.delGajiBulananFav);
 
         updateTextname.setText(nama);
         updateTextemail.setText(email);
         updateTextJenisPekerjaan.setText(jenis_pekerjaan);
         updateGaji.setText(gajiP);
+        updatePendidikanMin.setText(pendidikan_minimum);
+        updateLokasi.setText(lokasiP);
         final Button buttonDelete = (Button) dialogView.findViewById(R.id.buttonDeleteFav);
 
         //username for set dialog title
@@ -145,12 +149,11 @@ public class SlideshowFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 //Method for delete data
-                deleteUser(email);
+                deleteUser(nama);
                 b.dismiss();
             }
         });
     }
-
 
     private boolean deleteUser(String id) {
         //getting the specified User reference
@@ -164,7 +167,7 @@ public class SlideshowFragment extends Fragment {
     private void initListner() {
 
         // list item click listener
-        listViewP.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listViewFavorit.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 PerusahaanDAO User = Users.get(i);
