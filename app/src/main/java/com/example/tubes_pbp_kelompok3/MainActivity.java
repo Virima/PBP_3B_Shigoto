@@ -31,11 +31,14 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 import android.webkit.WebView;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
-
+    private String namaProfil, emailProfil;
+    private EditText namaP, emailP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +60,21 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
+        /*
+        namaP= findViewById(R.id.namaPlmr);
+        namaProfil=namaP.getText().toString();
+
+        emailP= findViewById(R.id.emailPlmr);
+        emailProfil=emailP.getText().toString();
+
+        View hView =  navigationView.getHeaderView(0);
+        TextView nav_user = (TextView)hView.findViewById(R.id.txtNamaProfil);
+        nav_user.setText(namaProfil);
+
+        View hView2 =  navigationView.getHeaderView(0);
+        TextView nav_user2 = (TextView)hView.findViewById(R.id.txtEmailProfil);
+        nav_user2.setText(emailProfil);
+        */
     }
 
 

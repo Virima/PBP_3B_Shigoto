@@ -46,7 +46,7 @@ public class DaftarPerusahaanActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 onClickRegister();
-
+                signUp();
             }
         });
     }
@@ -131,7 +131,79 @@ public class DaftarPerusahaanActivity extends AppCompatActivity {
     {
         PerusahaanDAO perusahaanDAO = new PerusahaanDAO(nama, email, password, pekerjaan, pendidikan, penempatan,
                                     gajiBulanan, usiaMin, usiaMax);
-        mDatabase.child("Perusahaan").child(email).setValue(perusahaanDAO);
+        mDatabase.child("Perusahaan").child(nama).setValue(perusahaanDAO);
+    }
+
+    //fungsi ini untuk mendaftarkan data pengguna ke Firebase
+    private void signUp() {
+        Log.d(TAG, "signUp");
+        if (!validateForm()) {
+            return;
+        }
+
+        //showProgressDialog();
+        String email = mEmail.getText().toString();
+        String password = mPassword.getText().toString();
+
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        Log.d(TAG, "createUser:onComplete:" + task.isSuccessful());
+                        //hideProgressDialog();
+
+                        if (task.isSuccessful()) {
+                            onAuthSuccess(task.getResult().getUser());
+                        } else {
+                            Toast.makeText(DaftarPerusahaanActivity.this, "Sign Up Failed",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
+    private void onAuthSuccess(FirebaseUser user) {
+        String username = usernameFromEmail(user.getEmail());
+
+        // membuat User admin baru
+        writeNewAdmin(user.getUid(), username, user.getEmail());
+
+        // Go to MainActivity
+        startActivity(new Intent(DaftarPerusahaanActivity.this, LoginActivity.class));
+        finish();
+    }
+
+    private String usernameFromEmail(String email) {
+        if (email.contains("@")) {
+            return email.split("@")[0];
+        } else {
+            return email;
+        }
+    }
+
+    private void writeNewAdmin(String userId, String name, String email) {
+        AdminDAO admin = new AdminDAO(name, email);
+
+        mDatabase.child("admins").child(userId).setValue(admin);
+    }
+
+    private boolean validateForm() {
+        boolean result = true;
+        if (TextUtils.isEmpty(mEmail.getText().toString())) {
+            mEmail.setError("Required");
+            result = false;
+        } else {
+            mEmail.setError(null);
+        }
+
+        if (TextUtils.isEmpty(mPassword.getText().toString())) {
+            mPassword.setError("Required");
+            result = false;
+        } else {
+            mPassword.setError(null);
+        }
+
+        return result;
     }
 
 }

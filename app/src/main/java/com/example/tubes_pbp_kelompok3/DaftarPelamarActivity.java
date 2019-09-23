@@ -3,6 +3,7 @@ package com.example.tubes_pbp_kelompok3;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,9 +12,14 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -33,6 +39,7 @@ public class DaftarPelamarActivity extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
+    private static final String TAG = "LoginActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +51,7 @@ public class DaftarPelamarActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 OnClickRegister();
+                signUp();
             }
         });
     }
@@ -146,7 +154,79 @@ public class DaftarPelamarActivity extends AppCompatActivity {
     {
         PelamarDAO pelamarDAO = new PelamarDAO(nama, email, password, alamat, usia, jenis_kelamin,
                 pekerjaanTerakhir, pendidikanTerakhir, tahunWisuda, pekerjaanImpian, lokasi, gaji);
-        mDatabase.child("Pelamar").child(email).setValue(pelamarDAO);
+        mDatabase.child("Pelamar").child(nama).setValue(pelamarDAO);
+    }
+
+    //fungsi ini untuk mendaftarkan data pengguna ke Firebase
+    private void signUp() {
+        Log.d(TAG, "signUp");
+        if (!validateForm()) {
+            return;
+        }
+
+        //showProgressDialog();
+        String email = mEmail.getText().toString();
+        String password = mPassword.getText().toString();
+
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        Log.d(TAG, "createUser:onComplete:" + task.isSuccessful());
+                        //hideProgressDialog();
+
+                        if (task.isSuccessful()) {
+                            onAuthSuccess(task.getResult().getUser());
+                        } else {
+                            Toast.makeText(DaftarPelamarActivity.this, "Sign Up Failed",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
+    private void onAuthSuccess(FirebaseUser user) {
+        String username = usernameFromEmail(user.getEmail());
+
+        // membuat User admin baru
+        writeNewAdmin(user.getUid(), username, user.getEmail());
+
+        // Go to MainActivity
+        startActivity(new Intent(DaftarPelamarActivity.this, LoginActivity.class));
+        finish();
+    }
+
+    private String usernameFromEmail(String email) {
+        if (email.contains("@")) {
+            return email.split("@")[0];
+        } else {
+            return email;
+        }
+    }
+
+    private void writeNewAdmin(String userId, String name, String email) {
+        AdminDAO admin = new AdminDAO(name, email);
+
+        mDatabase.child("admins").child(userId).setValue(admin);
+    }
+
+    private boolean validateForm() {
+        boolean result = true;
+        if (TextUtils.isEmpty(mEmail.getText().toString())) {
+            mEmail.setError("Required");
+            result = false;
+        } else {
+            mEmail.setError(null);
+        }
+
+        if (TextUtils.isEmpty(mPassword.getText().toString())) {
+            mPassword.setError("Required");
+            result = false;
+        } else {
+            mPassword.setError(null);
+        }
+
+        return result;
     }
 
 
