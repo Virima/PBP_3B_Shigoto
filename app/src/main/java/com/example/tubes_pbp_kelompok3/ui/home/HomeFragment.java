@@ -24,19 +24,27 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.tubes_pbp_kelompok3.HomeFragmentActivity;
 import com.example.tubes_pbp_kelompok3.PerusahaanDAO;
+import com.example.tubes_pbp_kelompok3.PerusahaanList;
 import com.example.tubes_pbp_kelompok3.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
     List<PerusahaanDAO> Users;
+    DatabaseReference databaseReference;
+    ListView listViewP;
 
-    public EditText mNama, mEmail, mPassword;
+    public EditText mNama, mEmail, mPassword, mJenisPerusahaan;
     private Spinner mPekerjaan, mPendidikan, mPenempatan;
     private EditText mUsiaMin, mUsiaMax, mGajiBulanan;
 
@@ -69,15 +77,53 @@ public class HomeFragment extends Fragment {
 
             }
         });
+
+        // method for find ids of views
+        findViews();
+
+
+        // to maintian click listner of views
+        initListner();
+
         return root;
 
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                //clearinxg the previous User list
+                Users.clear();
+
+                //getting all nodes
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    //getting User from firebase console
+                    PerusahaanDAO User = postSnapshot.getValue(PerusahaanDAO.class);
+                    //adding User to the list
+                    Users.add(User);
+                }
+                //creating Userlist adapter
+                PerusahaanList UserAdapter = new PerusahaanList(getActivity(), Users); //---------- -_- ---------//
+                //attaching adapter to the listview
+                listViewP.setAdapter(UserAdapter);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     private void CallUpdateAndDeleteDialog(String nama, final String email, String password, String jenis_pekerjaan,
                                            String pendidikan_minimum, String lokasiP, String gajiP, String usiaMinP,
                                            String usiaMaxP) {
 
-        //AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity());
 
 
         LayoutInflater inflater = getLayoutInflater();
@@ -157,5 +203,31 @@ public class HomeFragment extends Fragment {
         Toast.makeText(getActivity().getApplicationContext(), "Perusahaan Deleted", Toast.LENGTH_LONG).show();
         return true;
     }
+
+    private void initListner() {
+
+        // list item click listener
+        listViewP.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                PerusahaanDAO User = Users.get(i);
+                CallUpdateAndDeleteDialog(User.getNamaP(), User.getEmailP(),User.getPasswordP(),User.getJenis_pekerjaan(),
+                        User.getPendidikan_minimum(), User.getLokasiP(), User.getGajiP(), User.getUsiaMin(),
+                        User.getUsiaMax());
+            }
+        });
+    }
+
+    private void findViews() {
+        databaseReference = FirebaseDatabase.getInstance().getReference("Perusahaan");
+
+
+        listViewP = (ListView) getView().findViewById(R.id.listViewPerusahaan);
+
+        //list for store objects of user
+        Users = new ArrayList<>();
+
+    }
+
 
 }
